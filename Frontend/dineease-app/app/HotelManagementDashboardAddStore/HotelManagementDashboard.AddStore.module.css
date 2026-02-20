@@ -1,0 +1,550 @@
+/* dashboard.module.css */
+
+/* Page-level theme (full-screen) */
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  padding: 24px 18px 34px;
+
+  font-family: "Poppins", Arial, sans-serif;
+  color: #1f1f1f;
+  background: radial-gradient(1200px 600px at 10% -10%, #ffffff 40%, #f2f2f2 70%, #d9d9d9 100%);
+  position: relative;
+  overflow: clip;
+}
+
+/* Subtle grid overlay */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px;
+  mask-image: radial-gradient(1000px 500px at 10% -10%, #000 55%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animated blobs (soft ambient) */
+.blobA, .blobB {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
+}
+.blobA { width: 420px; height: 420px; left: -120px; top: -140px; background:#ffd9cc; animation: floatA 14s ease-in-out infinite; }
+.blobB { width: 360px; height: 360px; right: -140px; top: 22%; background:#d4f1ff; animation: floatB 16s ease-in-out infinite; }
+
+/* Brand at top-left */
+.brandTL {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  font-weight: 900;
+  color: #ff6b35;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid #e8e8e8;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  z-index: 60;
+}
+
+/* Top-right nav buttons */
+.topRightNav {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  gap: 10px;
+  z-index: 60;
+}
+.navBtn {
+  appearance: none;
+  border: 1px solid #e8e8e8;
+  background: rgba(255,255,255,0.85);
+  color: #222;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  backdrop-filter: saturate(130%) blur(4px);
+}
+.navBtn:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+.btnDot {
+  width: 8px; height: 8px; border-radius: 50%; background: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255,107,53,0.22);
+}
+
+/* Centered hero block (transparent) */
+.centerHero {
+  min-height: 48vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 12px;
+  margin-top: -20px;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  padding: 0;
+  animation: fadeIn 0.8s ease;
+}
+.heroTitle {
+  font-size: clamp(28px, 4.6vw, 44px);
+  margin: -10;
+  color: #222;
+}
+.heroSubtitle {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+}
+
+/* Search Bar */
+.searchBar {
+  display: flex; justify-content: center; align-items: center;
+  background: white; border-radius: 30px; padding: 8px 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  margin: 10px 0;
+  max-width: 600px;
+  width: 100%;
+}
+.searchBar input {
+  border: none; outline: none; padding: 12px; font-size: 16px; flex: 1;
+}
+.searchBar button {
+  background: #ff6b35; border: none; padding: 10px 18px; border-radius: 25px;
+  color: white; font-weight: bold; cursor: pointer; transition: transform 0.3s;
+}
+.searchBar button:hover { transform: scale(1.05); }
+
+/* Filters */
+.suggestionBtnsCentered {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.suggestionBtnsCentered button,
+.favoriteFilterBtn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #eee;
+  transition: 0.3s;
+}
+.suggestionBtnsCentered button:hover,
+.favoriteFilterBtn:hover {
+  background: #ff6b35;
+  color: white;
+}
+.activeFilter {
+  background: #ff6b35 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(255,107,53,0.3);
+}
+
+/* Hotels Grid */
+.hotels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: -80px 0;
+}
+
+/* Cards */
+.hotelCardRich {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  width: 300px;
+  padding: 16px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeInUp 0.8s ease;
+}
+.hotelCardRich:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.22);
+}
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+}
+.hotelName {
+  margin: 0;
+  font-size: 18px;
+  color: #222;
+}
+.city {
+  color: #666;
+  font-size: 13px;
+}
+.veg {
+  background: #4caf50;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.nonveg {
+  background: #d32f2f;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.heartRow {
+  display: flex;
+  align-items: center;
+  margin-top: -2px;
+}
+.heartBtnInline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #666;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.heartBtnInline:hover {
+  transform: scale(1.04);
+}
+.hearted {
+  color: #ff4d6d;
+  border-color: #ffd0da;
+  background: #fff0f4;
+}
+.heartLabel {
+  font-size: 12px;
+}
+
+.cuisines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.cuisineTag {
+  background: #f3f3f3;
+  color: #555;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #333;
+  font-weight: 600;
+  font-size: 13px;
+}
+.star {
+  color: #f5a623;
+}
+.clock {
+  color: #555;
+}
+.price {
+  color: #222;
+}
+
+.cardActionsRichSingle {
+  display: flex;
+  margin-top: 6px;
+}
+.primaryCta {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  background: #ff6b35;
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 14px rgba(255,107,53,0.3);
+}
+.primaryCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255,107,53,0.4);
+}
+
+/* Forms */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.formRow label {
+  font-size: 14px;
+  color: #444;
+}
+.formRow input,
+.formRow select,
+.formRow textarea {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.formRow input:focus,
+.formRow select:focus,
+.formRow textarea:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255,107,53,0.15);
+  background: #fff;
+}
+
+.rowGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 560px) {
+  .rowGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Buttons */
+.primaryBtn {
+  background: #ff6b35;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.primaryBtn:hover {
+  transform: translateY(-1px);
+  background: #e6572f;
+}
+.secondaryBtn {
+  background: #eee;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.secondaryBtn:hover {
+  background: #e6e6e6;
+}
+
+/* Toast */
+.toast {
+  background: #ecfff2;
+  color: #1b5e20;
+  border: 1px solid #b7e1c1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+@keyframes floatA {
+  0%,100% { transform: translateY(0) translateX(0) }
+  50% { transform: translateY(18px) translateX(10px) }
+}
+@keyframes floatB {
+  0%,100% { transform: translateY(0) translateX(0) }
+  50% { transform: translateY(-16px) translateX(-8px) }
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .page {
+    padding: 18px 14px 28px;
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(70,74,81,0.17);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.32s;
+  backdrop-filter: blur(2px);
+}
+.modal {
+  background: #fff;
+  padding: 30px 28px 24px;
+  border-radius: 18px;
+  min-width: 320px;
+  max-width: 97vw;
+  box-shadow: 0 8px 34px 0 rgba(0,0,0,0.14);
+  animation: fadeInUp 0.8s cubic-bezier(.56,.2,.4,1.04);
+}
+.modalActions {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  justify-content: flex-end;
+}
+
+.addHotelCard {
+  max-width: 340px;
+  min-width: 250px;
+  margin: 38px auto 29px auto;
+  background: linear-gradient(135deg, #fff 80%, #f8e0d6 120%);
+  border-radius: 28px;
+  border: 2px solid #ffb58c;
+  box-shadow: 0 10px 42px rgba(255,107,53,0.14), 0 2px 16px #ffdccc59;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 18px 20px 18px;
+  cursor: pointer;
+  transition: box-shadow 0.24s, transform 0.24s;
+  will-change: box-shadow, transform;
+  animation: fadeInUp 0.73s cubic-bezier(.56,.2,.4,1.04);
+
+}
+.addHotelCard:hover, .addHotelCard:focus {
+  box-shadow: 0 22px 52px rgba(255,107,53,0.22), 0 2px 18px #ffdccc5a;
+  transform: translateY(-3px) scale(1.025);
+  border-color: #ff9933;
+  outline: 2.5px solid #ffe6c8;
+}
+.cardEmoji {
+  background: linear-gradient(130deg,#ffd9cc 65%,#efe1ce 100%);
+  border-radius: 50%;
+  width: 66px;
+  height: 66px;
+  margin-bottom: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.7rem;
+  box-shadow: 0 4px 18px #ffe7de;
+}
+.cardAddTitle {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ff6b35;
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: 6px;
+  letter-spacing: .01em;
+}
+.cardAddSubtitle {
+  color: #444;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0.96;
+  margin-bottom: 2px;
+}
+.hotelsBlock {
+  margin-top: 18px;
+}
+
+/* dashboard.module.css */
+
+.whiteCard {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(211, 211, 211, 0.16);
+  border: 1.5px solid #ffd7c1;
+  min-width: 300px;
+  max-width: 360px;
+  padding: 28px 20px 24px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: box-shadow 0.22s, border 0.17s, transform 0.14s;
+  outline: none;
+  animation: fadeInUp 0.6s cubic-bezier(.58,.22,.38,.96);
+}
+
+.whiteCard:hover,
+.whiteCard:focus {
+  box-shadow: 0 14px 36px rgba(255, 107, 53, 0.13);
+  border-color: #ffba93;
+  transform: translateY(-4.5px) scale(1.019);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}

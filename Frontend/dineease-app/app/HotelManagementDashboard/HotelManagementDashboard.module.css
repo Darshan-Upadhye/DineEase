@@ -1,0 +1,336 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  padding: 24px 18px 34px;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #1f1f1f;
+  background: radial-gradient(1200px 600px at 10% -10%, #ffffff 40%, #f2f2f2 70%, #d9d9d9 100%);
+  position: relative;
+  overflow: clip;
+}
+
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px;
+  mask-image: radial-gradient(1000px 500px at 10% -10%, #000 55%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blobA, .blobB {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
+}
+.blobA { width: 420px; height: 420px; left: -120px; top: -140px; background:#ffd9cc; animation: floatA 14s ease-in-out infinite; }
+.blobB { width: 360px; height: 360px; right: -140px; top: 22%; background:#d4f1ff; animation: floatB 16s ease-in-out infinite; }
+
+.brandTL {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  font-weight: 900;
+  color: #ff6b35;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid #e8e8e8;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  z-index: 60;
+}
+
+.topRightNav {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  gap: 10px;
+  z-index: 60;
+}
+
+.navBtn {
+  appearance: none;
+  border: 1px solid #e8e8e8;
+  background: rgba(255,255,255,0.85);
+  color: #222;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  backdrop-filter: saturate(130%) blur(4px);
+}
+.navBtn:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+.btnDot {
+  width: 8px; height: 8px; border-radius: 50%; background: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255,107,53,0.22);
+}
+
+/* Dashboard Section Cards */
+.sectionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  border-radius: 25px;
+  border: 2.5px solid #ffb58c;
+  box-shadow: 0 10px 32px rgba(255,107,53,0.11), 0 2px 13px #ffdccc27;
+  padding: 40px 22px 32px 22px;
+  min-width: 290px;
+  max-width: 350px;
+  width: 96%;
+  min-height: 220px;
+  margin: 0 auto;
+  cursor: pointer;
+  margin-bottom: 0;
+  margin-top: 0;
+  will-change: transform;
+  transition: box-shadow 0.22s, transform 0.18s;
+  outline: none;
+  animation: fadeInUp 0.65s cubic-bezier(.58,.22,.38,.96);
+}
+.sectionCard:hover, .sectionCard:focus {
+  box-shadow: 0 24px 52px rgba(255,107,53,0.22), 0 2px 16px #ffdccc44;
+  border-color: #ff9933;
+  transform: translateY(-4.5px) scale(1.03);
+  outline: 2.5px solid #ffe6c8;
+}
+.sectionCardIcon {
+  background: linear-gradient(130deg,#ffd9cc 65%,#efe1ce 100%);
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  box-shadow: 0 4px 14px #ffe7de;
+}
+.sectionCardTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ff6b35;
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin-bottom: 7px;
+}
+.sectionCardDesc {
+  color: #444;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0.96;
+}
+
+@media (max-width: 900px) {
+  .sectionCard {
+    min-width: 90vw;
+    max-width: 99vw;
+    padding: 34px 8px 28px 8px;
+  }
+}
+
+.centerHero {
+  min-height: 48vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  animation: fadeIn 0.8s ease;
+}
+
+.heroTitle {
+  font-size: clamp(28px, 4.6vw, 44px);
+  margin: 0;
+  color: #222;
+}
+.heroSubtitle {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+}
+
+/* Section Page for ‘opened’ cards */
+.sectionPageWrapper {
+  margin: 54px auto 0 auto;
+  background: #fff;
+  border-radius: 30px;
+  border: 2.5px solid #ffb58c;
+  box-shadow: 0 6px 26px rgba(255,107,53,0.09);
+  padding: 40px 30px 32px 30px;
+  max-width: 470px;
+  width: 97vw;
+  min-height: 340px;
+}
+.sectionPageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 17px;
+}
+.sectionEmoji {
+  font-size: 2.4rem;
+  margin-bottom: 5px;
+  background: linear-gradient(110deg,#ffd9cc 60%,#efe1ce 100%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #ffe7de;
+}
+.sectionTitle {
+  font-size: 1.38rem;
+  font-weight: 800;
+  color: #ff6b35;
+  margin: 6px 0 3px;
+  text-align: center;
+}
+.sectionDesc {
+  color: #495;
+  font-size: 15.5px;
+  margin-bottom: 0;
+  text-align: center;
+  opacity: 0.9;
+}
+.sectionHeader {
+  color: #ff6b35;
+  margin: 12px 0 8px;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+.sectionCardDetail {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 11px 16px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  box-shadow: 0 1px 7px #efe1ce3e;
+}
+.menuItemRow {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+/* Resuse existing button styles */
+.primaryBtn {
+  background: #ff6b35;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.primaryBtn:hover {
+  transform: translateY(-1px);
+  background: #e6572f;
+}
+.secondaryBtn {
+  background: #eee;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.secondaryBtn:hover {
+  background: #e6e6e6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+@keyframes floatA {
+  0%,100% { transform: translateY(0) translateX(0) }
+  50% { transform: translateY(18px) translateX(10px) }
+}
+@keyframes floatB {
+  0%,100% { transform: translateY(0) translateX(0) }
+  50% { transform: translateY(-16px) translateX(-8px) }
+}
+
+@media (max-width: 900px) {
+  .page { padding: 12px 2vw 14vw 2vw; }
+  .sectionPageWrapper { max-width: 97vw; }
+  .sectionCard { min-width: 72vw; }
+}
+
+/* Popup */
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popupContent {
+  background: white;
+  border-radius: 20px;
+  padding: 24px 32px;
+  width: 280px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: fadeInScale 0.3s ease forwards;
+  outline: none;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* pulse animation for done image */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+.pulseAnimation {
+  animation-name: pulse;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+

@@ -1,0 +1,327 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: radial-gradient(1200px 600px at 10% -10%, #ffffff 40%, #f2f2f2 70%, #d9d9d9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px;
+  mask-image: radial-gradient(1000px 500px at 10% -10%, #000 55%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blobA, .blobB {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
+}
+.blobA { width: 420px; height: 420px; left: -120px; top: -140px; background:#ffd9cc; animation: floatA 14s ease-in-out infinite; }
+.blobB { width: 360px; height: 360px; right: -140px; top: 22%; background:#d4f1ff; animation: floatB 16s ease-in-out infinite; }
+
+@keyframes floatA {
+  0%,100% { transform: translateY(0) translateX(0) }
+  50% { transform: translateY(18px) translateX(10px) }
+}
+@keyframes floatB {
+  0%,100% { transform: translateY(0) translateX(0) }
+  50% { transform: translateY(-16px) translateX(-8px) }
+}
+
+.header {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #222;
+  margin-top: 44px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subHeader {
+  font-size: 1.18rem;
+  color: #444;
+  margin-bottom: 48px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.cardRow {
+  display: flex;
+  gap: 38px;
+  margin-bottom: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+.sectionCard {
+  background: #fff;
+  border-radius: 26px;
+  border: 2.5px solid #ff6b35;
+  box-shadow: 0 12px 36px rgba(255,107,53,0.12), 0 1.5px 6px rgba(0,0,0,0.07);
+  width: 400px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 38px 22px 32px 22px;
+  transition: box-shadow 0.2s, transform 0.18s;
+  cursor: pointer;
+}
+
+.sectionCard:hover {
+  transform: translateY(-7px) scale(1.03);
+  box-shadow: 0 22px 52px rgba(255,107,53,0.18), 0 3.5px 20px rgba(0,0,0,0.08);
+}
+
+.cardSymbol {
+  font-size: 50px;
+  margin-bottom: 7px;
+  margin-top: -10px;
+}
+
+.cardTitle {
+  font-weight: 900;
+  font-size: 1.7rem;
+  color: #ff6b35;
+  margin-bottom: -5px;
+  margin-top: 0px;
+  text-align: center;
+}
+
+.cardSubtitle {
+  font-size: 1rem;
+  color: #353535;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+/* List section */
+.hotelsSection {
+  margin-top: 28px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 18px;
+  color: #ff6b35;
+}
+
+/* Cards grid */
+.hotelsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 38px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Hotel card style large */
+.hotelCardRichLarge {
+  position: relative;
+  padding: 28px 38px 28px 38px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 22px rgb(0 0 0 / 0.13);
+  min-width: 340px;
+  min-height: 175px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hotelCardRichLarge:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.14);
+}
+
+.titleBlock {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hotelName {
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin: 0;
+  color: #222;
+}
+
+.city {
+  color: #666;
+  font-size: 1rem;
+}
+
+.veg {
+  color: green;
+  font-weight: 600;
+  background: #d4f9d4;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.nonveg {
+  color: red;
+  font-weight: 600;
+  background: #f9d4d4;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.cuisines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cuisineTag {
+  background: #f3f3f3;
+  color: #555;
+  padding: 6px 13px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.actionRow {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.approveBtn {
+  background: #13c36a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 28px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: box-shadow 0.22s, transform 0.18s, background 0.22s;
+  box-shadow: 0 3px 14px rgba(19, 195, 106, 0.10);
+  cursor: pointer;
+}
+
+.approveBtn:hover {
+  background: #11b15e;
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 8px 18px rgba(19, 195, 106, 0.18);
+}
+
+.rejectBtn {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 22px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: box-shadow 0.22s, transform 0.18s, background 0.22s;
+  box-shadow: 0 3px 14px rgba(255, 107, 53, 0.10);
+  cursor: pointer;
+}
+
+.rejectBtn:hover {
+  background: #e6572f;
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 8px 18px rgba(255, 107, 53, 0.20);
+}
+
+.approvePopup {
+  position: fixed !important;
+  top: 50vh !important;
+  left: 50vw !important;
+  transform: translate(-50%, -50%) !important;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 18px 54px rgba(19,195,106,0.19);
+  padding: 40px 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 99999;
+  opacity: 1 !important;
+  animation: fadeInOut 1.8s forwards;
+  width: fit-content;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.popupIcon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doneIcon {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  animation: doneBounce 1.2s cubic-bezier(.32,.76,.53,1.41);
+}
+@keyframes doneBounce {
+  0% { transform: scale(0.3);}
+  60% { transform: scale(1.2);}
+  80% { transform: scale(0.96);}
+  100% { transform: scale(1);}
+}
+
+.popupText {
+  font-size: 1.18rem;
+  color: #13c36a;
+  font-weight: 700;
+  text-align: center;
+}
+
+@keyframes fadeInUp {
+  from {opacity:0;transform:translateY(30px);}
+  to {opacity:1;transform:translateY(0);}
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: scale(0.8);}
+  15% { opacity: 1; transform: scale(1.05);}
+  80% { opacity: 1; transform: scale(1);}
+  100% { opacity: 0; transform: scale(1);}
+}
+
+@media (max-width: 900px) {
+  .header { font-size: 1rem; }
+  .cardRow { gap: 18px;}
+  .sectionCard { width: 270px; min-height: 200px; padding: 22px 6px 18px 6px;}
+  .cardTitle { font-size: 1.15rem;}
+  .hotelsSection {margin-top:12px;}
+  .hotelCardRichLarge {min-width:210px; padding:10px;}
+}
+@media (max-width: 650px) {
+  .page { padding: 10px 1vw;}
+  .header { font-size:1.2rem; }
+  .cardRow { flex-direction: column; align-items: center; gap: 12px;}
+  .sectionCard { width: 96vw; max-width: 330px;}
+  .hotelsList { gap: 10px;}
+}

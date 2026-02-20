@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.page {
+  min-height: 100vh;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #1f1f1f;
+  background: radial-gradient(1200px 600px at 10% -10%, #ffffff 40%, #f2f2f2 70%, #d9d9d9 100%);
+  padding: 30px 20px;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gridBg {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px;
+  mask-image: radial-gradient(1000px 500px at 10% -10%, #000 55%, transparent 100%);
+  z-index: 0;
+}
+.blobA, .blobB {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
+}
+.blobA {
+  width: 420px;
+  height: 420px;
+  left: -120px;
+  top: -140px;
+  background: #ffd9cc;
+  animation: floatA 14s ease-in-out infinite;
+}
+.blobB {
+  width: 360px;
+  height: 360px;
+  right: -140px;
+  top: 22%;
+  background: #d4f1ff;
+  animation: floatB 16s ease-in-out infinite;
+}
+@keyframes floatA {
+  0%,100% { transform: translateY(0) translateX(0) }
+  50% { transform: translateY(18px) translateX(10px) }
+}
+@keyframes floatB {
+  0%,100% { transform: translateY(0) translateX(0) }
+  50% { transform: translateY(-16px) translateX(-8px) }
+}
+.brandTL {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  font-weight: 900;
+  color: #ff6b35;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid #e8e8e8;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  z-index: 10;
+}
+
+.centerHero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.heroTitle {
+  font-size: clamp(28px, 4vw, 44px);
+  margin: 0;
+  color: #222;
+}
+.vegTag {
+  background: #4caf50;
+  font-weight: 600;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  margin-left: 10px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+.nonVegTag {
+  background: #d32f2f;
+  font-weight: 600;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  margin-left: 10px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+.heroSubtitle {
+  margin: 8px 0 5px 0;
+  font-size: 18px;
+  color: #555;
+}
+
+.formCard {
+  background: #fff;
+  padding: 20px 24px;
+  max-width: 400px;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.formRow {
+  display: flex;
+  flex-direction: column;
+}
+.formRow label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.formRow input,
+.formRow select,
+.formRow textarea {
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline-offset: 0;
+  outline-color: transparent;
+  background: #fafafa;
+  transition: border-color 0.3s ease;
+}
+.formRow input:focus,
+.formRow select:focus,
+.formRow textarea:focus {
+  border-color: #ff6b35;
+  background: #fff;
+}
+
+.primaryCta {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+.primaryCta:hover:not(:disabled) {
+  background: #e6572f;
+}
+.primaryCta:disabled,
+.primaryCta[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondaryBtn {
+  background: #f0f0f0;
+  border: none;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #333;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+.secondaryBtn:hover {
+  background: #d6d6d6;
+}
+
+.menuLayout {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 20px;
+  align-items: flex-start;
+}
+.menuSection {
+  flex-grow: 2;
+  overflow-y: auto;
+  max-height: 600px;
+  padding-right: 6px;
+}
+.menuCategory {
+  margin-bottom: 32px;
+}
+.menuCategory h2 {
+  border-bottom: 3px solid #ff6b35;
+  padding-bottom: 6px;
+  color: #ff6b35;
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+.menuCard {
+  background: white;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.07);
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.3s ease;
+}
+.menuCard:hover {
+  transform: translateY(-4px);
+}
+.menuCard h4 {
+  margin: 0;
+  font-weight: 700;
+}
+.desc {
+  flex-grow: 1;
+  font-size: 13px;
+  color: #555;
+}
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #777;
+  font-size: 14px;
+}
+.tags {
+  font-style: italic;
+  font-size: 12px;
+  color: #999;
+}
+
+.cart {
+  background: #fafafa;
+  flex-basis: 320px;
+  border-radius: 16px;
+  padding: 20px 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  max-height: 600px;
+  overflow-y: auto;
+  position: sticky;
+  top: 30px;
+}
+.cart h3 {
+  margin-top: 0;
+  color: #ff6b35;
+  font-weight: 900;
+  border-bottom: 2px solid #ff6b35;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+.cart ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cart li {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cart li > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart li p {
+  margin: 4px 0 8px 0;
+  font-weight: 700;
+  font-size: 14px;
+}
+.cart li small {
+  font-weight: 400;
+  font-size: 13px;
+  color: #555;
+}
+.cart div > button {
+  background: #ff6b35;
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  margin: 0 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  user-select: none;
+}
+.cart div > button:hover {
+  background: #e6572f;
+}
+
+.receivedBtn {
+  background: #999;
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  user-select: none;
+  transition: background 0.3s;
+}
+.receivedBtn:hover:not(:disabled) {
+  background: #666;
+}
+.receivedBtnActive {
+  background: #4caf50;
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  user-select: none;
+  transition: background 0.3s;
+}
+.receivedBtnActive:hover:not(:disabled) {
+  background: #388e3c;
+}
+.receivedItem {
+  background: #e6ffe6;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+/* Order Box */
+.orderBox {
+  margin: 40px auto;
+  max-width: 450px;
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+}
+.orderBox h2 {
+  color: #4caf50;
+  margin-bottom: 12px;
+}
+
+.receiptBox {
+  margin: 40px auto;
+  max-width: 500px;
+  background: white;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  padding: 28px 30px;
+  border-radius: 18px;
+  font-family: monospace;
+  white-space: pre-line;
+  color: #222;
+}
+.receiptBox ul {
+  list-style: none;
+  padding-left: 12px;
+  margin: 18px 0;
+}
+.receiptBox ul li {
+  margin-bottom: 8px;
+}
+.receiptActions {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.splitInput {
+  width: 80px;
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-weight: 700;
+}
+
+/* Modal overlay and content */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+.modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  padding: 24px 26px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.modalClose {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #777;
+  transition: color 0.25s ease;
+}
+.modalClose:hover {
+  color: #ff6b35;
+}
+.modal h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ff6b35;
+  text-align: center;
+}
+.modal label {
+  font-weight: 600;
+  color: #444;
+}
+.modal select,
+.modal textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #ddd;
+  resize: none;
+  outline-offset: 0;
+  background: #fafafa;
+}
+.modal select:focus,
+.modal textarea:focus {
+  border-color: #ff6b35;
+  background: #fff;
+}
+.addonOptions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.addonLabel {
+  user-select: none;
+  font-weight: 600;
+  color: #555;
+}
+.addonLabel input {
+  margin-right: 6px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.modalActions {
+  margin-top: 14px;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+@media (max-width: 830px) {
+  .menuLayout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .menuSection {
+    max-height: none;
+    width: 100%;
+  }
+  .cart {
+    position: relative;
+    max-height: none;
+    width: 100%;
+    margin-top: 24px;
+  }
+}
+
+.splitInput {
+  width: 80px;
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-weight: 700;
+}
+
+.popupOrderPlaced {
+  position: absolute;
+  right: 340px; /* adjust according to your layout */
+  top: 100px;
+  background: white;
+  color: black;
+  padding: 16px 24px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+  z-index: 90;
+  width: 240px;
+  text-align: center;
+  user-select: none;
+}
+
+/* Make feedback link appear like a button */
+.receiptActions a {
+  text-decoration: none;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.receiptActions a:hover {
+  background-color: #d6d6d6;
+}
