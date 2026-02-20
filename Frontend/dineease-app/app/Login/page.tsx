@@ -56,7 +56,7 @@ const Login: React.FC = () => {
 
     // --- MAIN APP LOGIN ---
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const res = await fetch('https://dineease-jw8m.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // FIX: Sending 'email' value as 'username' key because your backend likely expects 'username'
