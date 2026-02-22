@@ -10,8 +10,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20POS-purple" />
-  <img src="https://img.shields.io/badge/Backend-Node%20%7C%20Django%20%7C%20Spring-success" />
-  <img src="https://img.shields.io/badge/Database-MySQL%20%7C%20PostgreSQL%20%7C%20MongoDB-blue" />
+  <img src="https://img.shields.io/badge/Backend-Node%20%7C%20-success" />
+  <img src="https://img.shields.io/badge/Database-MangoDB%20%7C%20-blue" />
   <img src="https://img.shields.io/badge/Status-Active-brightgreen" />
 </p>
 
@@ -161,17 +161,6 @@ All components communicate securely through APIs to maintain consistency and rea
 
 ---
 
-## 🤝 Contribution Guide
-
-```bash
-# 1. Fork the repository
-# 2. Create a feature branch
-git checkout -b feature-name
-
-# 3. Commit changes
-git commit -m "Add feature"
-
-# 4. Push and create pull request
 ```
 
 We welcome improvements, optimizations, and feature enhancements.
