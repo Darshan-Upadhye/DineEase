@@ -1,18 +1,17 @@
-<p align="center">
+<h1 align="center">
   <img 
     src="https://github.com/user-attachments/assets/957cc127-9f62-4d29-b241-bd4c327d93af" 
-    width="120" 
-    height="120" 
+    width="60" 
+    height="60" 
     alt="DineEase Logo"
+    style="vertical-align: middle;"
   />
-</p>
-
-<h1 align="center">DineEase</h1>
+  DineEase
+</h1>
 
 <p align="center">
   <strong>A Smart Management System for College Canteens & Hotel Restaurants</strong>
 </p>
-
   <p align="center">
     Streamlining ordering, billing, inventory, and real-time communication in one unified platform.
   </p>
