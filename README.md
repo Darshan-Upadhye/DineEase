@@ -161,8 +161,6 @@ All components communicate securely through APIs to maintain consistency and rea
 
 ---
 
-```
-
 We welcome improvements, optimizations, and feature enhancements.
 
 ---
