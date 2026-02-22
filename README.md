@@ -8,7 +8,7 @@
   </p>
 </p>
 
-<img width="100" height="100" alt="Image" src="https://github.com/user-attachments/assets/957cc127-9f62-4d29-b241-bd4c327d93af" />
+<img width="250" height="250" alt="Image" align="center" src="https://github.com/user-attachments/assets/957cc127-9f62-4d29-b241-bd4c327d93af" />
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20POS-purple" />
