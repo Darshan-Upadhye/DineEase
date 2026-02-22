@@ -10,8 +10,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20POS-purple" />
-  <img src="https://img.shields.io/badge/Backend-Node%20%7C-success" />
-  <img src="https://img.shields.io/badge/Database-MangoDB%20%7C-blue" />
+  <img src="https://img.shields.io/badge/Backend-Node-success" />
+  <img src="https://img.shields.io/badge/Database-MangoDB-blue" />
   <img src="https://img.shields.io/badge/Status-Active-brightgreen" />
 </p>
 
