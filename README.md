@@ -8,7 +8,14 @@
   </p>
 </p>
 
-<img width="350" height="350" align="center" alt="Image" src="https://github.com/user-attachments/assets/957cc127-9f62-4d29-b241-bd4c327d93af" />
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/957cc127-9f62-4d29-b241-bd4c327d93af" 
+    width="350" 
+    height="350" 
+    alt="DineEase Logo"
+  />
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20POS-purple" />
