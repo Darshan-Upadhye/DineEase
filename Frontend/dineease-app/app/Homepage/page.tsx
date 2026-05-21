@@ -351,7 +351,7 @@ export default function Homepage() {
                 <a href="https://github.com/Darshan-Upadhye" className={styles.devSocialIcon} title="GitHub"><IconGithub /></a>
                 <a href="mailto:darshanupadhye272@gmail.com" className={styles.devSocialIcon} title="Email"><IconMail /></a>
                 <a href="https://wa.me/918412967484?text=Hi%20Darshan,%20I%20would%20like%20to%20connect%20with%20you" className={styles.devSocialIcon} title="WhatsApp"><IconWhatsApp /></a>
-                <a href="#" className={styles.devSocialIcon} title="Portfolio"><IconGlobe /></a>
+                <a href="https://darshan-upadhye-portfolio.vercel.app/" className={styles.devSocialIcon} title="Portfolio"><IconGlobe /></a>
               </div>
             </div>
           </div>
